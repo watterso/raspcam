@@ -1,0 +1,31 @@
+#most_recent{
+  width: 320px;
+  height: 480px;
+  display: block;
+  margin: 0 auto;
+}
+.past_frames img{
+  width: 200px;
+  height: 200px;
+}
+.past_frames{
+  list-style-type: none;
+  margin: 0;
+}
+.past_frames li{
+  display: inline-block;
+  float: left;
+  margin: 10px;
+}
+#wrapper{
+  width: 85%;
+  margin: 0 auto;
+}
+img{
+  border-radius: 3px;
+}
+body{
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  background-color: #F0F1EE;
+  color: #333332;
+}

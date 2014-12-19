@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id="wrapper">
+  {% if most_recent %}
+  <img id="most_recent" src="{{most_recent.file}}">
+  {% else %}
+  <em>No frames available.</em>
+  {% endif%}
+  <ul class="past_frames">
+    {% for pic in frames %}
+    <li><a href="{{pic.file}}" data-lightbox="motion detected" data-title="{{pic.title}}"><img src="{{pic.file}}" title="{{pic.title}}"></a>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
