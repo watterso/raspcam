@@ -20,4 +20,4 @@ def show_frames():
   return render_template('show_frames.html', most_recent=most_recent, frames=paths)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
