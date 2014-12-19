@@ -2,14 +2,31 @@
 {% block body %}
 <div id="wrapper">
   {% if most_recent %}
-  <img id="most_recent" src="{{most_recent.file}}">
+  <div id="most_recent" style="background:url({{most_recent.file}});">
+    <p id="caption">{{most_recent.title}}</p>
+  </div>
   {% else %}
   <em>No frames available.</em>
   {% endif%}
-  <ul class="past_frames">
+  <ul id="past_frames">
     {% for pic in frames %}
-    <li><a href="{{pic.file}}" data-lightbox="motion detected" data-title="{{pic.title}}"><img src="{{pic.file}}" title="{{pic.title}}"></a>
+    <li><img src="{{pic.file}}" title="{{pic.title}}">
     {% endfor %}
   </ul>
 </div>
+<script>
+  var ul = document.getElementById('past_frames');  // Parent
+  ul.addEventListener('click', function(e) {
+    var target = e.target; // Clicked element
+    if(target.tagName === 'LI' || target.tagName === 'IMG'){
+      if (target.tagName === 'LI'){
+        target=target.childNodes[0];
+      }
+      var main_pic = document.getElementById('most_recent');
+      main_pic.style.backgroundImage = 'url(\"'+target.src+'")';
+      var caption = document.getElementById('caption');
+      caption.textContent = target.title;
+    }
+  });
+</script>
 {% endblock %}
